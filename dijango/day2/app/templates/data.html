@@ -1,0 +1,8 @@
+<h1>Student List</h1>
+
+<ul>
+  {% for student in std %}
+    <li>{{ student.name }} - {{ student.age }} - {{ student.department }} - {{student.reg_no}}</li>
+  {% endfor %}
+</ul>
+<a href="subject/">Go to Second Page</a>
