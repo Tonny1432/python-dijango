@@ -1,221 +1,78 @@
-# 🚀 Django CRUD Student Management System
+# 🧠 Loan Eligibility Prediction Web App
 
-## 📌 Project Overview
-
-This is a **basic Django CRUD (Create, Read, Update, Delete) web application** for managing student records.
-The project demonstrates how data flows from **HTML forms → Django views → Database → back to UI**.
+This project is an end-to-end Machine Learning + Django web application that predicts whether a customer is eligible for a loan.
 
 ---
 
-## 🎯 Features
+## 📌 Features
 
-* ➕ Add new student
-* 📄 View all students
-* ✏️ Update student details
-* ❌ Delete student
-* 🔐 Admin panel for manual data management
-
----
-
-## 🧠 Concepts Covered
-
-* Django Project & App structure
-* Models (Database tables)
-* Views (Business logic)
-* Templates (HTML rendering)
-* URL routing (dynamic URLs)
-* Forms handling (POST request)
-* CRUD operations
-* Database migrations
+* User-friendly web interface (Django)
+* Real-time prediction
+* Machine Learning model integration
+* Handles real-world data issues
+* Clean and structured backend
 
 ---
 
-## 🛠️ Tech Stack
+## ⚙️ Tech Stack
 
-* **Backend:** Python, Django
-* **Frontend:** HTML
-* **Database:** SQLite (default Django DB)
-
----
-
-## 📂 Project Structure
-
-```
-day2/
-│
-├── day2/                # Main project folder
-│   ├── settings.py
-│   ├── urls.py
-│
-├── app/                 # Main app
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   ├── templates/
-│   │   ├── data.html
-│   │   ├── edit.html
-│
-├── db.sqlite3
-├── manage.py
-```
+* Python
+* Django
+* Scikit-learn (Random Forest)
+* Pandas, NumPy
+* HTML/CSS
 
 ---
 
-## 🧱 Model (Database)
+## 📊 Machine Learning Pipeline
 
-```python
-class students(models.Model):
-    s_name = models.CharField(max_length=50)
-    s_age = models.IntegerField()
-    s_dept = models.CharField(max_length=50)
-    s_reg = models.IntegerField()
-    s_email = models.CharField(max_length=100)
-```
-
----
-
-## 🔄 CRUD Operations
-
-### ➕ Create (Add Student)
-
-* HTML form sends POST request
-* Data saved using:
-
-```python
-students.objects.create(...)
-```
+1. Data Cleaning (missing values, duplicates)
+2. Feature Selection
+3. Label Encoding
+4. Train/Test Split
+5. Model Training (Random Forest)
+6. Model Saving using Pickle
+7. Integration with Django
 
 ---
 
-### 📄 Read (Display Students)
+## 🔥 Key Challenges Solved
 
-```python
-students = students.objects.all()
-```
-
-* Displayed using template loop
-
----
-
-### ✏️ Update (Edit Student)
-
-```python
-student = students.objects.get(id=id)
-student.s_name = ...
-student.save()
-```
+* Fixed dataset parsing issues (CSV format errors)
+* Handled inconsistent categorical values
+* Solved "unseen label" errors in production
+* Improved model performance vs Deep Learning approach
 
 ---
 
-### ❌ Delete (Remove Student)
-
-```python
-student = students.objects.get(id=id)
-student.delete()
-```
-
----
-
-## 🔗 URL Routing
-
-### Project URLs (`day2/urls.py`)
-
-```python
-path('', include('app.urls'))
-```
-
-### App URLs (`app/urls.py`)
-
-```python
-path('', views.student_details),
-path('delete/<int:id>/', views.delete_student),
-path('edit/<int:id>/', views.edit_student),
-```
-
----
-
-## 🧠 How It Works (Flow)
-
-```
-User → URL → View → Model → Database
-                         ↓
-                     Template → User
-```
-
----
-
-## ▶️ How to Run
-
-1. Install Django
+## 🚀 How to Run
 
 ```bash
-pip install django
-```
-
-2. Run migrations
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-3. Start server
-
-```bash
+python train.py
 python manage.py runserver
 ```
 
-4. Open browser
+---
 
-```
-http://127.0.0.1:8000/
-```
+## 💡 Future Improvements
+
+* Add user authentication
+* Add dashboard with analytics
+* Improve UI using Bootstrap
+* Deploy to cloud (AWS / Render)
 
 ---
 
-## 🔐 Admin Panel
+## 📎 Output
 
-Create superuser:
-
-```bash
-python manage.py createsuperuser
-```
-
-Open:
-
-```
-http://127.0.0.1:8000/admin/
-```
+(User inputs → Model prediction → Result display)
 
 ---
 
-## 💡 Key Learnings
+## 🙌 Author
 
-* Difference between `.all()` and `.get()`
-* Importance of `id` in CRUD operations
-* Mapping between HTML → View → Model
-* Handling POST requests safely
-* Debugging Django errors
+Dhanush Kumar S.R
 
 ---
 
-## 🚀 Future Improvements
-
-* Add search functionality
-* Add validation
-* Convert to REST API
-* Add frontend (React)
-
----
-
-## 👨‍💻 Author
-
-**Tonny**
-
----
-
-## ⭐ Conclusion
-
-This project is a **strong foundation for Django backend development** and prepares you for building real-world applications and APIs.
-
----
+⭐ If you like this project, give it a star!
