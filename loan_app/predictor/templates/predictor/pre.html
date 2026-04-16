@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<body>
+    <h1>Loan eligiliblity checker</h1>
+    <h3>Enter the name and other details to check the elgibilty  <br>
+        of the person for the loan or not. </h3>
+    <form  method ="post">
+        {% csrf_token %}
+        <br>
+        Name:<br><input type="text" name="name"><br>
+        Age:<br><input type="text" name="age"><br>
+        Job:<br><select name="job">
+            <option value="admin">Admin</option>
+            <option value="blue-collar">Blue collar</option>
+            <option value="technician">Technician</option>
+            <option value="services">Services</option>
+            <option value="management" >Management</option>
+            <option value="retired" >Retired</option>
+            <option value="entrepreneur">Entrepreneur</option>
+            <option value="self-employed">Self-employed</option>
+            <option value="housemaid">Housemaid</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+            <option value="unknow">Other</option>
+            </select><br>
+        Housing loan:<br><select name="housing">
+             <option value="yes">Yes</option>
+            <option value="no">No</option>
+            </select><br>
+
+        Personal loan:<br><select name="personal">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            </select><br>
+            <br>
+        Camping:<br><input type="text" name="camping"><br>
+        Poutcome:<br><input type="text" name="poutcome"><br>
+        Remarks:<br><textarea name="message" rows="10" cols="30"></textarea><br>
+      <br><input type="submit"><br>
+    </form>
+</body>
